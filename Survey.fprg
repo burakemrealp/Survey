@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="burak"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-12-07 10:50:00 &#214;S"/>
+        <attribute name="created" value="YnVyYWs7REVTS1RPUC1UUUJJSjlNOzIwMjMtMTItMDc7MDI6Mjk6Mzkgw5ZTOzMwNTQ="/>
+        <attribute name="edited" value="YnVyYWs7REVTS1RPUC1UUUJJSjlNOzIwMjMtMTItMDc7MTA6NTA6MDAgw5ZTOzI7MzE0NA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="start, continue" type="Boolean" array="False" size=""/>
+            <assign variable="start" expression="true"/>
+            <declare name="gender, likeCoffee, totalMember, male, female, myes, fyes, survey" type="Integer" array="False" size=""/>
+            <assign variable="myes" expression="0"/>
+            <assign variable="fyes" expression="0"/>
+            <assign variable="male" expression="0"/>
+            <assign variable="female" expression="0"/>
+            <assign variable="totalMember" expression="0"/>
+            <output expression="&quot;Welcome to our Survey&quot;" newline="True"/>
+            <while expression="start">
+                <assign variable="totalMember" expression="totalMember+1"/>
+                <output expression="&quot;What is your gender? (male:1, female: 2)&quot;" newline="True"/>
+                <input variable="gender"/>
+                <if expression="gender=1">
+                    <then>
+                        <assign variable="male" expression="male+1"/>
+                        <output expression="&quot;Do you like Coffee? (yes: 1, no: 2)&quot;" newline="True"/>
+                        <input variable="likeCoffee"/>
+                        <if expression="likeCoffee=1">
+                            <then>
+                                <assign variable="myes" expression="myes+1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="female" expression="female+1"/>
+                        <output expression="&quot;Do you like Coffee? (yes: 1, no: 2)&quot;" newline="True"/>
+                        <input variable="likeCoffee"/>
+                        <if expression="likeCoffee=1">
+                            <then>
+                                <assign variable="fyes" expression="fyes+1"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Do you want to continue to survey? (yes: 1, no:2)&quot;" newline="True"/>
+                <input variable="survey"/>
+                <if expression="survey=1">
+                    <then>
+                        <assign variable="start" expression="true"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Total Member that taken the survey: &quot; &amp;totalMember &amp;&quot;, Male: &quot; &amp;male &amp;&quot;, Female: &quot; &amp;female" newline="True"/>
+                        <output expression="&quot;Total number of coffee lovers: &quot; &amp;(myes + fyes) &amp;&quot;, Male: &quot; &amp;myes &amp;&quot;, Female: &quot; &amp;fyes" newline="True"/>
+                        <assign variable="start" expression="false"/>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
